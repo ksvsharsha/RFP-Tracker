@@ -1,67 +1,66 @@
-<!DOCTYPE html>
-<html >
-
+<!doctype html>
+<html ng-app="myapp">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="C:\Users\bhabhava\Desktop\taffy\taffy.js"></script>
 <head>
-
-<style>
+<style >
 .grid {
   width: 100%;
   height: 300px;
 }
-.red{
+.red {
   background-color: red !important;
 }
-.green{
+.green {
   background-color: green !important;
 }
-.yellow{
-  background-color: #ffc200 !important;
+.amber {
+  background-color: #FFC200 !important;
 }
-/*td1
+td
 {
   text-align: center;
-}*/
+}
 </style>
-<link rel="stylesheet" type="text/css" href="bower-ui-grid-master\ui-grid.css"/>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="C:\Users\karbhava\Desktop\taffydb-master\taffy.js"></script>
- <script src="C:\Users\karbhava\Desktop\RFP Tracker\bower-ui-grid-master\ui-grid.js"></script>
-</head>
-<body ng-app="myapp">
-
 <h1 align="center">RFP Tracker</h1>
- <div ng-controller="MainCtrl"  style="text-align:center">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+<script src="C:\Users\bhabhava\Desktop\RFP Tracker\bower-ui-grid-master\ui-grid.js"></script>
+<link rel="stylesheet" type="text/css" href="C:\Users\bhabhava\Desktop\RFP Tracker\bower-ui-grid-master\ui-grid.css"/>
+</head>
+<body>
+<div ng-controller="MainCtrl" style="text-align:center">
 <table align="center" cellpadding="20">
 <tr>
     <div class="radio">
     <td> <label for="chkYes">
-    <input type="radio" id="chkYes" name="chkPassPort" ng-click="ShowHideDiv()"/>Date</label></td></div>
+    <input type="radio" id="chkYes" name="chkRadio" ng-click="ShowHideDiv()" />Date</label></td></div>
     <td><div id="dvdate" style="display: none">From<input type="date" ng-model="fromdate" ng-init="$parent.getDate(fromdate)"/>
                                                To<input type="date" ng-model="todate" ng-init="$parent.getDate(todate)"/></div>
    </td>
+
 </tr>
 <tr>
   <td><label for="chkNo">
-    <input type="radio" id="chkNo" name="chkPassPort" ng-click="ShowHideDiv()"/>Status</label></td>
-  <td><div id="dvstatus" style="display:none"><select ng-model="opt">
-  <option ng-model="active" value="">Active</option>
-  <option ng-model="Red">Red</option>
-  <option ng-model="Green">Green</option>
-  <option ng-model="Yellow">Yellow</option>
+    <input type="radio" id="chkNo" name="chkRadio" ng-click="ShowHideDiv()" />Status</label></td>
+  <td><div id="dvstatus" style="display: none">
+  <select id="status" ng-model="opt">
+    <option ng-model="Active" value="Inactive">Active</option>
+    <option ng-model="Red" value="Red">Red</option>
+    <option ng-model="Amber" value="Amber">Amber</option>
+    <option ng-model="green" value="Green">Green</option>
   </select></div></td>
 </tr>
 <tr>
-  
-  <td><input type="button" value="Filter" ng-click="filter(fromdate,todate)"/></td>
+  <td></td>
+  <td><input type="button" value="Filter" ng-click="filter()" /></td>
   <td><input type="button" value="Reset" ng-click="reset()"/></td>
   </tr>
 </table><br/><br/>
 
-<div id="grid1" class="grid" ui-grid="mydata"></div>
-<input type="button" value="NEW RFP"/>
 
-</div>
-<script src="C:\Users\karbhava\Desktop\RFP Tracker\app.js"></script>
+<div class="grid" ui-grid="mydata" ui-grid-auto-resize></div>
+<input type="button" value="NEW RFP"</div>
 </body>
-
+<script src="C:\Users\bhabhava\Desktop\RFP Tracker\app.js"></script>
 </html>
